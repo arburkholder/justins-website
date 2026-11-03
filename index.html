@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Justin Gonzalez: A Crazy Cool Website</title>
+<meta name="description" content="The official, scientifically crazy, measurably cool website of Justin Gonzalez, Marketing Guide, Grill Sergeant and Fish Whisperer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>😎</text></svg>">
+<style>
+  :root{
+    --ink:#140b2e; --paper:#fff8e7; --hot:#ff2e88; --lime:#b6ff3b; --cyan:#22e4ff; --sun:#ffd23f; --grill:#ff6b1a;
+    --card:#1f1247; --muted:#c9bdf0;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--ink);color:var(--paper);font-family:"Space Grotesk",system-ui,sans-serif;overflow-x:hidden;cursor:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='36' height='36'><text y='28' font-size='28'>🎸</text></svg>") 4 4,auto}
+  a{color:var(--cyan)}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+  h1,h2,h3{font-family:"Bungee",sans-serif;font-weight:400;line-height:1.05;margin:0 0 .4em}
+
+  /* marquee */
+  .marquee{background:var(--sun);color:var(--ink);font-family:"Bungee";overflow:hidden;white-space:nowrap;border-bottom:4px solid var(--ink)}
+  .marquee span{display:inline-block;padding:10px 0;animation:scroll 22s linear infinite}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* hero */
+  .hero{position:relative;padding:56px 0 72px;text-align:center;background:
+    radial-gradient(circle at 20% 20%,#ff2e8855,transparent 40%),
+    radial-gradient(circle at 80% 30%,#22e4ff44,transparent 40%),
+    radial-gradient(circle at 50% 90%,#b6ff3b33,transparent 45%)}
+  .kicker{display:inline-block;background:var(--hot);color:#fff;padding:6px 14px;border-radius:999px;font-weight:700;transform:rotate(-3deg);box-shadow:4px 4px 0 var(--cyan)}
+  .hero h1{font-family:"Bungee Shade";font-size:clamp(44px,9vw,108px);margin:22px 0 8px;color:var(--sun);text-shadow:4px 4px 0 var(--hot),8px 8px 0 var(--cyan)}
+  .hero .sub{font-size:clamp(18px,2.6vw,24px);color:var(--muted);max-width:720px;margin:0 auto 28px}
+  .face{position:relative;width:min(280px,70vw);aspect-ratio:1;margin:0 auto 28px}
+  .face img{width:100%;height:100%;object-fit:cover;border-radius:50%;border:8px solid var(--sun);box-shadow:0 0 0 8px var(--hot),0 0 60px 20px #ff2e8866;animation:wobble 4s ease-in-out infinite}
+  @keyframes wobble{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg) scale(1.03)}}
+  .shades{position:absolute;left:50%;top:34%;width:62%;transform:translate(-50%,-120vh);font-size:clamp(70px,16vw,130px);line-height:1;pointer-events:none;transition:transform .9s cubic-bezier(.5,1.8,.5,1)}
+  .face.cool .shades{transform:translate(-50%,-50%)}
+  .btn{font:inherit;font-family:"Bungee";font-size:18px;border:4px solid var(--ink);background:var(--lime);color:var(--ink);padding:14px 22px;border-radius:14px;box-shadow:6px 6px 0 var(--hot);cursor:pointer;transition:transform .1s}
+  .btn:hover{transform:translate(-2px,-2px) rotate(-1deg)}
+  .btn:active{transform:translate(4px,4px);box-shadow:2px 2px 0 var(--hot)}
+  .btn.alt{background:var(--cyan)}
+  .btn.hot{background:var(--sun)}
+  .row{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+
+  section{padding:64px 0}
+  section h2{font-size:clamp(30px,5vw,52px);color:var(--lime)}
+  .lede{color:var(--muted);font-size:19px;max-width:700px}
+
+  /* stat cards */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-top:28px}
+  .card{background:var(--card);border:3px solid #3a2a7a;border-radius:20px;padding:22px;transition:transform .2s}
+  .card:hover{transform:rotate(-1.5deg) scale(1.03);border-color:var(--hot)}
+  .card .big{font-family:"Bungee";font-size:40px;color:var(--sun)}
+  .card p{margin:.3em 0 0;color:var(--muted)}
+  .emoji{font-size:44px}
+
+  /* grill */
+  .grillbox{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+  @media (max-width:760px){.grillbox{grid-template-columns:1fr}}
+  .grill{position:relative;background:#2b2b2b;border-radius:24px 24px 60px 60px;height:240px;border:6px solid #111;overflow:hidden}
+  .grates{position:absolute;inset:30px 20px auto;height:120px;background:repeating-linear-gradient(90deg,#555 0 8px,transparent 8px 30px)}
+  .flame{position:absolute;bottom:0;left:0;right:0;height:var(--h,20%);background:linear-gradient(0deg,#ff1a1a,var(--grill),var(--sun),transparent);filter:blur(4px);transition:height .4s}
+  .food{position:absolute;inset:50px 0 auto;display:flex;justify-content:center;gap:12px;font-size:52px;z-index:2}
+  .meter{height:22px;background:#2f235f;border-radius:999px;overflow:hidden;border:3px solid var(--paper);margin:14px 0}
+  .meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--lime),var(--sun),var(--grill),#ff1a1a);transition:width .3s}
+  .verdict{font-family:"Bungee";font-size:22px;color:var(--sun);min-height:2.4em}
+
+  /* fishing */
+  .pond{position:relative;height:300px;border-radius:24px;background:linear-gradient(#22e4ff 0,#0b6fb8 35%,#073a73);overflow:hidden;border:4px solid var(--cyan);cursor:crosshair;touch-action:manipulation}
+  .fish{position:absolute;font-size:42px;user-select:none;transition:transform .2s}
+  .fish.caught{transform:translateY(-400px) rotate(720deg) !important;transition:transform .8s ease-in}
+  .score{font-family:"Bungee";font-size:24px;margin:12px 0}
+  .fishquote{min-height:1.5em;color:var(--sun);font-weight:700}
+
+  /* guitar */
+  .strings{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-top:20px}
+  .chord{font-family:"Bungee";font-size:26px;background:var(--hot);color:#fff;border:4px solid var(--paper);border-radius:16px;padding:22px 0;cursor:pointer;box-shadow:0 8px 0 #a3105a}
+  .chord:active,.chord.on{transform:translateY(6px);box-shadow:0 2px 0 #a3105a}
+  .crowd{font-size:30px;min-height:44px;margin-top:16px}
+
+  /* twins */
+  .twins{display:flex;gap:22px;justify-content:center;font-size:clamp(70px,14vw,120px);margin:20px 0}
+  .twins span{display:inline-block;animation:bop 1.2s ease-in-out infinite}
+  .twins span:last-child{animation-delay:.6s}
+  @keyframes bop{50%{transform:translateY(-14px) rotate(6deg)}}
+
+  /* testimonials */
+  blockquote{margin:0;background:var(--paper);color:var(--ink);border-radius:20px;padding:22px;font-size:18px;position:relative;box-shadow:6px 6px 0 var(--cyan)}
+  blockquote cite{display:block;margin-top:10px;font-style:normal;font-weight:700;color:var(--hot)}
+
+  footer{background:#0b0620;padding:40px 0 60px;text-align:center;color:var(--muted)}
+  .counter{display:inline-block;font-family:monospace;font-size:22px;background:#000;color:var(--lime);padding:6px 12px;border:2px inset #777;letter-spacing:4px}
+
+  .confetti{position:fixed;top:-40px;font-size:28px;pointer-events:none;z-index:99;animation:fall linear forwards}
+  @keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+  .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(150%);background:var(--lime);color:var(--ink);font-weight:700;padding:14px 20px;border-radius:14px;border:3px solid var(--ink);z-index:100;transition:transform .3s;max-width:calc(100% - 32px);text-align:center}
+  .toast.show{transform:translateX(-50%) translateY(0)}
+  body.party{animation:hue 2s linear infinite}
+  @keyframes hue{to{filter:hue-rotate(360deg)}}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="marquee" aria-hidden="true"><span>
+  ★ WELCOME TO JUSTIN'S CRAZY COOL WEBSITE ★ NOW 400% COOLER ★ BEST VIEWED WHILE HOLDING TONGS ★ NO FISH WERE HARMED (SOME WERE MILDLY EMBARRASSED) ★ CERTIFIED CRAZY BY THE DEPARTMENT OF COOL ★
+  ★ WELCOME TO JUSTIN'S CRAZY COOL WEBSITE ★ NOW 400% COOLER ★ BEST VIEWED WHILE HOLDING TONGS ★ NO FISH WERE HARMED (SOME WERE MILDLY EMBARRASSED) ★ CERTIFIED CRAZY BY THE DEPARTMENT OF COOL ★
+</span></div>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="kicker">⚠️ Warning: dangerously cool</span>
+    <h1>JUSTIN<br>GONZALEZ</h1>
+    <p class="sub">Marketing Guide by day. Grill Sergeant, Fish Whisperer, Twin Dad and part-time rock legend by… also day. He's busy.</p>
+    <div class="face" id="face">
+      <img src="https://rosewood.us.com/wp-content/uploads/2024/09/Justin-Gonzalez-Profile-Picture-768x768.jpg" alt="Justin Gonzalez" onerror="this.replaceWith(Object.assign(document.createElement('div'),{textContent:'🧔',style:'font-size:200px;line-height:1'}))">
+      <div class="shades">🕶️</div>
+    </div>
+    <div class="row">
+      <button class="btn" id="coolBtn">Make him cooler</button>
+      <button class="btn alt" id="partyBtn">Party mode</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="stats">
+    <div class="wrap">
+      <h2>Official Justin Stats™</h2>
+      <p class="lede">Independently audited by his daughters, who are both very strict.</p>
+      <div class="grid">
+        <div class="card"><div class="emoji">📈</div><div class="big">∞%</div><p>Client goals met, on a chart he made himself. Bars go up. Everyone cheers.</p></div>
+        <div class="card"><div class="emoji">🍔</div><div class="big">9,001</div><p>Burgers grilled. Number is approximate and growing as you read this.</p></div>
+        <div class="card"><div class="emoji">🐟</div><div class="big">1</div><p>Fish that got away. He still thinks about it. Its name was Gary.</p></div>
+        <div class="card"><div class="emoji">👯‍♀️</div><div class="big">2×</div><p>Daughters. Identical twins. Equally skilled at stealing his guitar picks.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="grill" style="background:#1a0f3d">
+    <div class="wrap grillbox">
+      <div>
+        <h2>The Grill-O-Meter 🔥</h2>
+        <p class="lede">Justin doesn't follow recipes. Recipes follow Justin. Crank the heat and see what he thinks.</p>
+        <div class="meter"><i id="meterFill"></i></div>
+        <div class="verdict" id="verdict">The grill is cold. Justin is sad.</div>
+        <div class="row" style="justify-content:flex-start">
+          <button class="btn hot" id="heatBtn">Turn up the heat</button>
+          <button class="btn alt" id="flipBtn">Flip it</button>
+        </div>
+      </div>
+      <div class="grill" id="grillEl">
+        <div class="grates"></div>
+        <div class="food" id="food">🌭🍔🥩</div>
+        <div class="flame" id="flame"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fishing">
+    <div class="wrap">
+      <h2>Go Fish (With Justin) 🎣</h2>
+      <p class="lede">Click the fish to catch them. 15 seconds on the clock. Justin's record is "all of them."</p>
+      <div class="row" style="justify-content:flex-start;align-items:center">
+        <button class="btn" id="fishBtn">Cast the line</button>
+        <div class="score" id="score">Caught: 0 · Time: 15</div>
+      </div>
+      <div class="fishquote" id="fishQuote"></div>
+      <div class="pond" id="pond" aria-label="Fishing pond game"></div>
+    </div>
+  </section>
+
+  <section id="guitar" style="background:#1a0f3d">
+    <div class="wrap">
+      <h2>Jam With Justin 🎸</h2>
+      <p class="lede">Worship team guitarist. Living-room rock star. Hit a chord and feel the crowd go mild (his daughters are a tough audience). Turn your sound on.</p>
+      <div class="strings">
+        <button class="chord" data-chord="G">G</button>
+        <button class="chord" data-chord="C">C</button>
+        <button class="chord" data-chord="D">D</button>
+        <button class="chord" data-chord="Em">Em</button>
+      </div>
+      <div class="crowd" id="crowd"></div>
+    </div>
+  </section>
+
+  <section id="twins">
+    <div class="wrap" style="text-align:center">
+      <h2>Twin Detector 👀</h2>
+      <p class="lede" style="margin:0 auto">Justin has twin daughters. Science has not determined how many twins he has. Let's check.</p>
+      <div class="twins" id="twinsEl"><span>👧</span><span>👧</span></div>
+      <button class="btn hot" id="twinBtn">Run detector</button>
+      <p class="verdict" id="twinResult" style="margin-top:16px"></p>
+    </div>
+  </section>
+
+  <section id="reviews" style="background:#1a0f3d">
+    <div class="wrap">
+      <h2>Reviews (Totally Real)</h2>
+      <div class="grid">
+        <blockquote>"He made our marketing goals actually make sense. Then he grilled us lunch. 11/10."<cite>— A very happy client</cite></blockquote>
+        <blockquote>"Blub. Blub blub. (Translation: he releases you with a nice compliment.)"<cite>— A fish, Lake Somewhere</cite></blockquote>
+        <blockquote>"Dad, play the song again. No, the OTHER one. No, the first one."<cite>— Both twins, simultaneously</cite></blockquote>
+        <blockquote>"I was on that grill for 4 minutes per side. Perfection. I have no regrets."<cite>— A former burger</cite></blockquote>
+        <blockquote>"He visited us at the zoo and waved. We waved back. Bond formed."<cite>— A goat at the petting zoo</cite></blockquote>
+        <blockquote>"Positive difference? Every single day. Also he's on key."<cite>— The worship team</cite></blockquote>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>You are visitor number</p>
+    <div class="counter" id="counter">000001</div>
+    <p style="margin-top:22px">Justin Gonzalez · Marketing Guide at <a href="https://rosewood.us.com/about/team/justin-gonzalez/">Rosewood Marketing</a></p>
+    <p style="font-size:14px">Made with 🔥, 🎸 and an unreasonable number of emoji. Try the Konami code. ⬆️⬆️⬇️⬇️⬅️➡️⬅️➡️🅱️🅰️</p>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const $ = s => document.querySelector(s);
+const rand = (a,b) => Math.random()*(b-a)+a;
+const pick = a => a[Math.floor(Math.random()*a.length)];
+
+function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),2600)}
+function confetti(set=['🎉','🔥','🎸','🐟','🍔','😎'],n=40){
+  for(let i=0;i<n;i++){const c=document.createElement('div');c.className='confetti';c.textContent=pick(set);
+    c.style.left=rand(0,100)+'vw';c.style.animationDuration=rand(1.8,3.6)+'s';document.body.appendChild(c);setTimeout(()=>c.remove(),4000)}
+}
+
+// audio
+let ctx;
+function audio(){ctx=ctx||new (window.AudioContext||window.webkitAudioContext)();return ctx}
+function pluck(freq,when=0,dur=1.6){
+  const a=audio(),o=a.createOscillator(),g=a.createGain(),t=a.currentTime+when;
+  o.type='triangle';o.frequency.value=freq;g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.25,t+.01);g.gain.exponentialRampToValueAtTime(.0001,t+dur);
+  o.connect(g).connect(a.destination);o.start(t);o.stop(t+dur);
+}
+function blip(f=600,d=.12){try{pluck(f,0,d)}catch(e){}}
+
+// cooler
+let coolLevel=0;
+const coolLines=["Shades: ON. Cool level: 1.","Cool level 2. Nearby ice cubes are jealous.","Cool level 3. Penguins request his autograph.","Cool level 4. Thermometers refuse to measure him.","Cool level MAX. He is now officially a Crazy Cool Website."];
+$('#coolBtn').onclick=()=>{$('#face').classList.add('cool');toast(coolLines[Math.min(coolLevel,coolLines.length-1)]);if(coolLevel>=coolLines.length-1)confetti(['😎','🧊','❄️','🕶️']);coolLevel++;blip(400+coolLevel*120)};
+
+// party
+$('#partyBtn').onclick=()=>{const on=document.body.classList.toggle('party');toast(on?'PARTY MODE. Justin approves.':'Party over. Justin is stacking chairs.');if(on)confetti()};
+
+// grill
+let heat=0,flips=0;
+const verdicts=[[0,"The grill is cold. Justin is sad."],[15,"Warming up… Justin is putting on the apron."],[35,"Sizzle detected. Neighbors are leaning over the fence."],[55,"Medium rare. Justin nods approvingly."],[75,"PERFECT. Justin has achieved Grill Nirvana."],[90,"Okay that's… a lot. The smoke detector is calling Justin's cell."],[100,"🚒 Justin calls this 'Cajun style.'"]];
+function renderGrill(){$('#meterFill').style.width=heat+'%';$('#flame').style.setProperty('--h',(15+heat*.75)+'%');
+  let v=verdicts[0][1];for(const [k,t] of verdicts)if(heat>=k)v=t;$('#verdict').textContent=v;
+  $('#food').textContent=heat>=100?'🔥💨🔥':heat>=90?'🍖🍖🍖':'🌭🍔🥩'}
+$('#heatBtn').onclick=()=>{heat=Math.min(100,heat+12);renderGrill();blip(200+heat*4);if(heat===100)confetti(['🔥','🚒','💨'],30)};
+$('#flipBtn').onclick=()=>{flips++;const f=$('#food');f.animate([{transform:'translateY(0) rotate(0)'},{transform:'translateY(-80px) rotate(180deg)'},{transform:'translateY(0) rotate(360deg)'}],{duration:600});
+  heat=Math.max(0,heat-10);renderGrill();if(flips%5===0)toast(`${flips} flips. Justin's wrist is legally a spatula now.`)};
+renderGrill();
+
+// fishing
+const fishQuotes=["Nice one! Justin says catch and release, and a high five.","That's a keeper! (He's releasing it anyway.)","Gary? Is that you? …No. Not Gary.","The fish asked for a marketing consultation.","Fish caught. Fish complimented. Fish released. Fish is having a great day."];
+let fishTimer,spawnTimer,caught=0,left=15,playing=false;
+function spawnFish(){
+  const pond=$('#pond'),f=document.createElement('div');f.className='fish';f.textContent=pick(['🐟','🐠','🐡','🐟','🦈']);
+  const fromLeft=Math.random()<.5,y=rand(20,240),dur=rand(2.2,4.5);f.style.top=y+'px';f.style.left=fromLeft?'-60px':'calc(100% + 10px)';
+  if(fromLeft)f.style.transform='scaleX(-1)';pond.appendChild(f);
+  const anim=f.animate([{left:fromLeft?'-60px':'calc(100% + 10px)'},{left:fromLeft?'calc(100% + 10px)':'-60px'}],{duration:dur*1000,easing:'linear'});
+  anim.onfinish=()=>f.remove();
+  f.addEventListener('pointerdown',e=>{e.stopPropagation();if(!playing||f.classList.contains('caught'))return;
+    if(f.textContent==='🦈'){caught=Math.max(0,caught-1);$('#fishQuote').textContent="A SHARK?! In this lake?! Justin is filing a complaint. (−1)";blip(120,.4)}
+    else{caught++;$('#fishQuote').textContent=pick(fishQuotes);blip(880)}
+    anim.pause();f.classList.add('caught');setTimeout(()=>f.remove(),800);updScore()});
+}
+function updScore(){$('#score').textContent=`Caught: ${caught} · Time: ${left}`}
+$('#fishBtn').onclick=()=>{if(playing)return;playing=true;caught=0;left=15;updScore();$('#fishQuote').textContent='Line cast. Patience, grasshopper.';
+  spawnTimer=setInterval(spawnFish,550);fishTimer=setInterval(()=>{left--;updScore();if(left<=0){clearInterval(fishTimer);clearInterval(spawnTimer);playing=false;
+    const msg=caught>=15?`${caught} fish! Justin is offering you a job.`:caught>=8?`${caught} fish! Justin is proud. Grilled lunch on him.`:caught>0?`${caught} fish. Justin says "It's about the journey."`:"Zero fish. Justin will teach you. Gently.";
+    $('#fishQuote').textContent=msg;if(caught>=8)confetti(['🐟','🎣','🏆'])}},1000)};
+
+// guitar
+const chords={G:[98,123.47,146.83,196,246.94,392],C:[130.81,164.81,196,261.63,329.63],D:[146.83,220,293.66,369.99],Em:[82.41,123.47,164.81,196,246.94,329.63]};
+const reactions=["👏","🙌","😄","🎶","👧👧 \"again!\"","🐐 (the goat liked it)","🔥","💃🕺","🤘","🎵 Encore! 🎵"];
+let strums=0;
+document.querySelectorAll('.chord').forEach(b=>{b.onclick=()=>{try{chords[b.dataset.chord].forEach((f,i)=>pluck(f,i*.03))}catch(e){}
+  b.classList.add('on');setTimeout(()=>b.classList.remove('on'),150);strums++;$('#crowd').textContent+=pick(reactions)+' ';
+  if(strums%12===0){toast("Standing ovation! (It's his daughters. They're standing on the couch.)");$('#crowd').textContent=''}}});
+
+// twins
+const twinResults=["Result: 2 twins. Confirmed. Science is satisfied.","Result: 2 twins. Wait, that guy in the photo is also smiling twice as much.","Result: 2 twins + 1 Dad who is outnumbered at all times.","Result: Still 2. They are plotting something. Probably involving the guitar.","Result: ERROR. Too much cuteness. Detector needs a nap."];
+let twinRuns=0;
+$('#twinBtn').onclick=()=>{const el=$('#twinsEl');el.style.opacity=.3;$('#twinResult').textContent='Scanning… 🔍';blip(300);
+  setTimeout(()=>{el.style.opacity=1;$('#twinResult').textContent=twinResults[Math.min(twinRuns,twinResults.length-1)];twinRuns++;blip(700)},900)};
+
+// fake visitor counter
+(()=>{let n=1;try{n=(+localStorage.getItem('jcc_visits')||0)+1;localStorage.setItem('jcc_visits',n)}catch(e){}
+  const shown=1337+n*Math.floor(rand(2,7));$('#counter').textContent=String(shown).padStart(6,'0')})();
+
+// konami
+const code=['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];let pos=0;
+addEventListener('keydown',e=>{pos=(e.key===code[pos])?pos+1:(e.key===code[0]?1:0);
+  if(pos===code.length){pos=0;confetti(['🐟','🍔','🎸','👧','🐐','🦒','🐘','😎'],120);toast('SECRET UNLOCKED: Justin has entered his final form. 🦸');
+    $('#face').classList.add('cool');document.body.classList.add('party');[392,494,587,784].forEach((f,i)=>{try{pluck(f,i*.12,.5)}catch(e){}})}});
+</script>
+</body>
+</html>
